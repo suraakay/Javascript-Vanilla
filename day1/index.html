@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box-group">
+            <button data-key="83" class="box">
+                <h2>S</h2>
+                <p>Clap</p>
+            </button>
+            <button data-key="68" class="box">
+                <h2>D</h2>
+                <p>Harp</p>
+            </button>
+            <button data-key="70" class="box">
+                <h2>F</h2>
+                <p>Hi-high</p>
+            </button>
+            <button data-key="71" class="box">
+                <h2>G</h2>
+                <p>Applause</p>
+            </button>
+            <button data-key="72" class="box">
+                <h2>H</h2>
+                <p>Hi-low </p>
+            </button>
+            <button data-key="74" class="box">
+                <h2>J</h2>
+                <p>Tympani</p>
+            </button>
+            <button data-key="75" class="box">
+                <h2>K</h2>
+                <p>Gong</p>
+            </button>
+            <button data-key="76" class="box">
+                <h2>L</h2>
+                <p>Ba-bum</p>
+            </button>
+        </div>
+        <div class="box-group-options">
+            <button class="box" onclick="stop()">Silence</button>
+        </div>
+    </div>
+
+    <div class="audio">
+        <audio data-key="83" src="sounds/applause.wav"></audio>
+        <audio data-key="68" src="sounds/Harp.wav"></audio>
+        <audio data-key="70" src="sounds/Hi-Hat-.mp3"></audio>
+        <audio data-key="71" src="sounds/applause.wav"></audio>
+        <audio data-key="72" src="sounds/Hi-Hat-.mp3"></audio>
+        <audio data-key="74" src="sounds/Tympani.wav"></audio>
+        <audio data-key="75" src="sounds/gong.wav"></audio>
+        <audio data-key="76" src="sounds/Ba-Bum.mp3"></audio>
+    </div>
+
+    <script>
+        window.addEventListener('keydown', (e) => {
+            const audio = document.querySelector(`audio[data-key='${e.keyCode}']`)
+            const button = document.querySelector(`button[data-key='${e.keyCode}']`)
+            if (!audio) return;
+            audio.currentTime = 0; //rewind to the start
+            audio.play(); // play
+            button.classList.add('playing')
+
+            setTimeout(() => {
+                button.classList.remove('playing')
+            }, 500);
+        })
+        function stop() {
+            const number = document.querySelector('.audio').childElementCount
+            for (let i = 1; i < number+1; i++) {
+                document.querySelector(`.audio audio:nth-child(${i})`).pause();
+            }
+        }
+    </script>
+</body>
+
+</html>
