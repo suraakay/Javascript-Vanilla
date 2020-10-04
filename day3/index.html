@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="controls">
+            <label for="spacingLabel">Spacing</label>
+            <input id="spacing" type="range" min="1" max="8">
+            <label for="blurLabel">Blur</label>
+            <input id="blur" type="range" min="0" max="10">
+        </div>
+        <div class="image">
+            <img id="image" src="./images/city.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const inputs = document.querySelectorAll('.controls input')
+    inputs.forEach(input => {
+        addEventListener('change', (e) => {
+            e.target.id === 'spacing' ?
+                document.getElementById('image').style.padding = `${e.target.value}rem`
+                : null
+            e.target.id === 'blur' ?
+                document.getElementById('image').style.filter = `blur(${e.target.value}px)`
+                : null
+        })
+    })
+
+
+</script>
+
+</html>
