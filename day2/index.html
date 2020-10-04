@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Road</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+
+    </div>
+</body>
+<script>
+    
+    function setDate() {
+        const now = new Date();
+        const sec = now.getSeconds();  // current time - second
+        const min = now.getMinutes();   // current time - minute
+        const hr = now.getHours();  // current time - hour
+        console.log(((hr % 12 * 60) + min) / 2) //this is the formula for initializing hour minute by minute 
+
+        document.querySelector(".second").style.transform = `rotate(${sec * 6}deg)`
+        document.querySelector(".minute").style.transform = `rotate(${min * 6}deg)`
+        document.querySelector(".hour").style.transform = `rotate(${((hr % 12 * 60) + min) / 2}deg)`
+    }
+    setInterval(setDate, 1000)
+</script>
+
+</html>

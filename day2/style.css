@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+}
+body {
+  background-image: url("./images/wall.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock {
+  width: 20rem;
+  height: 20rem;
+  background-image: url("./images/clock.png");
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+  opacity: 0.8;
+  margin-top: -0.8rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background-color: black;
+  border-radius: 50%;
+  padding: 0.6rem;
+  z-index: 999;
+}
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  background-color: black;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: bottom;
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+}
+.hour {
+  width: 0.3rem;
+  height: 5rem;
+}
+.minute {
+  width: 0.2rem;
+  height: 6.5rem;
+}
+.second {
+  width: 0.1rem;
+  height: 7rem;
+  background-color: red;
+}
