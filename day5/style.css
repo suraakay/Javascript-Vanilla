@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  font-family: "Indie Flower", cursive;
+  letter-spacing: 0.2rem;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+.panels {
+  font-size: 2.6rem;
+  color: white;
+  text-shadow: 1px 0px 25px rgba(0, 0, 0, 1);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.panel {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  transition: flex 0.7s cubic-bezier(0.51, 0.11, 0.23, 0.97);
+}
+
+.panel > * {
+  display: flex;
+  transition: transform 1s, font-size .9s cubic-bezier(0.51, 0.11, 0.23, 0.97);
+}
+.panel :nth-child(2) {
+  font-size: 3.5rem;
+}
+.panel :nth-child(1) {
+  transform: translateY(-300%);
+}
+.panel :nth-child(3) {
+  transform: translateY(300%);
+}
+.panel.open :nth-child(1) {
+  transform: translateY(0);
+}
+.panel.open :nth-child(3) {
+  transform: translateY(0);
+}
+.panel.open {
+  flex: 5;
+}
+.panel.open :nth-child(2){
+    font-size: 4rem ;  
+  }
+
+.panel1 {
+  background-image: url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500);
+}
+.panel2 {
+  background-image: url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500);
+}
+.panel3 {
+  background-image: url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d);
+}
+.panel4 {
+  background-image: url(https://source.unsplash.com/ITjiVXcwVng/1500x1500);
+}
+.panel5 {
+  background-image: url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500);
+}
