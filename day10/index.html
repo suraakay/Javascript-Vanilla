@@ -99,7 +99,7 @@
         const checkboxes = document.querySelectorAll('.item input[type="checkbox"]')
 
         let lastChecked
-        let isBetween
+        let isBetween = false
 
         function handleChange(e) {
 
@@ -112,14 +112,14 @@
                         checkbox.checked = true
                     }
                 })
-
-                lastChecked = e.target
             }
-
+            lastChecked = e.target
         }
 
 
-            checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleChange))
+
+
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleChange))
 
     </script>
 </body>
